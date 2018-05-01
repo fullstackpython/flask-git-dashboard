@@ -2,9 +2,7 @@ import os
 
 
 class Config(object):
-    DEBUG = os.getenv('DEBUG') or True
     SECRET_KEY = os.getenv('SECRET_KEY') or 'development key'
-
 
     # Redis
     REDIS_SERVER = os.getenv('REDIS_SERVER') or 'localhost'
@@ -13,6 +11,5 @@ class Config(object):
     REDIS_URL = 'redis://{}:{}'.format(REDIS_SERVER, REDIS_PORT)
 
     # Celery task queue
-    CELERY_URL = os.getenv('CELERY_BROKER_URL') or 'redis://localhost:6379'
-    CELERY_BACKEND = os.getenv('CELERY_BACKEND') or 'redis://localhost:6379'
-
+    CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL') or REDIS_URL
+    CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND') or REDIS_URL

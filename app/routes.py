@@ -16,3 +16,7 @@ def send_css(path):
 def dashboard():
     return render_template('dashboard.html')
 
+
+@app.route("/repositories")
+def repositories():
+    return render_template('repositories.html')

@@ -1,4 +1,5 @@
 import os
+base_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config(object):
@@ -13,3 +14,8 @@ class Config(object):
     # Celery task queue
     CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL') or REDIS_URL
     CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND') or REDIS_URL
+
+    # database settings
+    SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL') or \
+        'sqlite:///' + os.path.join(basedir, 'flaskdash.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

@@ -1,5 +1,4 @@
 import os
-base_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 class Config(object):
@@ -17,5 +16,6 @@ class Config(object):
 
     # database settings
     SQLALCHEMY_DATABASE_URI = os.getenv('DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'flaskdash.db')
+      'sqlite:///' + os.path.join(os.path.abspath(os.path.dirname(__file__)),
+      'flaskdash.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False

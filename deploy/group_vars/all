@@ -1,0 +1,8 @@
+deploy_user: deployer
+deploy_group: deployers
+ssh_dir: "/home/matt/serverconfig/"
+ssh_key_name: "serverconfig"
+
+db_name: "chapter6"
+db_user: "{{ deploy_user }}"
+db_password: pleaseuseagoodpassword

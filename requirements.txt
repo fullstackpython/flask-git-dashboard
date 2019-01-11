@@ -5,3 +5,4 @@ Celery==4.1.0
 redis==2.10.6
 WTForms==2.1
 psycopg2==2.7.6.1
+gunicorn==19.9.0

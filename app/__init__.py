@@ -18,4 +18,4 @@ redis_db = redis.StrictRedis(host=app.config['REDIS_SERVER'],
 celery = make_celery(app)
 
 
-from app import routes
+from app import routes, models
